@@ -33,6 +33,8 @@ float = int '.' number
 
 scientific = ( int | float ) 'e' int
 
+bigint = '#' int
+
 string = '"' { text | '\"' } '"'
 
 uuid = ( 8 * hexDigit ) '-' ( 4 * hexDigit ) '-' ( 4 * hexDigit ) '-' ( 4 * hexDigit ) '-' ( 12 * hexDigit )
