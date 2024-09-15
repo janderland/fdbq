@@ -49,11 +49,11 @@
     <li><a href="#filtering" id="toc-filtering">Filtering</a></li>
     <li><a href="#indirection" id="toc-indirection">Indirection</a></li>
     <li><a href="#aggregation" id="toc-aggregation">Aggregation</a></li>
-    <li><a href="#transactions"
-    id="toc-transactions">Transactions</a></li>
-    <li><a href="#design-recipes" id="toc-design-recipes">Design
-    Recipes</a></li>
-    <li><a href="#as-a-layer" id="toc-as-a-layer">As a Layer</a></li>
+    <li><a href="#using-fql" id="toc-using-fql">Using FQL</a>
+    <ul>
+    <li><a href="#cli" id="toc-cli">CLI</a></li>
+    <li><a href="#api" id="toc-api">API</a></li>
+    </ul></li>
     </ul>
   <h1 id="overview">Overview</h1>
   <p>FQL is specified as a <a
@@ -363,6 +363,8 @@
   return tr.MustGet(dir.Pack(tuple.Tuple{10139})), nil
 })</code></pre>
   <h2 id="range-reads">Range Reads</h2>
+  <p>TODO: Show a simpler query here. Use this query as the filtering
+  example.</p>
   <p>Queries with <a href="#variables">variables</a> or the
   <code>...</code> token in their key (and optionally in their value)
   result in a range of key-values being read.</p>
@@ -512,11 +514,11 @@
 /deltas(&quot;group A&quot;,3)=nil</code></pre>
   <pre class="lang-fql query"><code>/deltas(&quot;group A&quot;,&lt;sum&gt;)</code></pre>
   <pre class="lang-fql result"><code>/deltas(&quot;group A&quot;,5)=&lt;&gt;</code></pre>
-  <h1 id="transactions">Transactions</h1>
+  <h1 id="using-fql">Using FQL</h1>
+  <h2 id="cli">CLI</h2>
   <p>TODO: Finish section.</p>
-  <h1 id="design-recipes">Design Recipes</h1>
-  <p>TODO: Finish section.</p>
-  <h1 id="as-a-layer">As a Layer</h1>
+  <h2 id="api">API</h2>
+  <p>TODO: Review this section.</p>
   <p>When integrating SQL into other languages, there are usually two
   choices each with their own drawbacks:</p>
   <ol type="1">

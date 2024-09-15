@@ -393,6 +393,9 @@ db.Transact(func(tr fdb.Transaction) (interface{}, error) {
 
 ## Range Reads
 
+TODO: Show a simpler query here. Use this query as the
+filtering example.
+
 Queries with [variables](#variables) or the `...` token in
 their key (and optionally in their value) result in a range
 of key-values being read.
@@ -607,15 +610,15 @@ provided as well.
 /deltas("group A",5)=<>
 ```
 
-# Transactions
+# Using FQL
+
+## CLI
 
 TODO: Finish section.
 
-# Design Recipes
+## API
 
-TODO: Finish section.
-
-# As a Layer
+TODO: Review this section.
 
 When integrating SQL into other languages, there are usually
 two choices each with their own drawbacks:
