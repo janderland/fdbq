@@ -8,13 +8,13 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/janderland/fdbq/engine"
-	q "github.com/janderland/fdbq/keyval"
-	"github.com/janderland/fdbq/keyval/class"
-	"github.com/janderland/fdbq/keyval/convert"
-	"github.com/janderland/fdbq/parser"
-	"github.com/janderland/fdbq/parser/format"
-	"github.com/janderland/fdbq/parser/scanner"
+	"github.com/janderland/fql/engine"
+	q "github.com/janderland/fql/keyval"
+	"github.com/janderland/fql/keyval/class"
+	"github.com/janderland/fql/keyval/convert"
+	"github.com/janderland/fql/parser"
+	"github.com/janderland/fql/parser/format"
+	"github.com/janderland/fql/parser/scanner"
 )
 
 type App struct {

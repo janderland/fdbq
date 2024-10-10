@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/janderland/fdbq/keyval"
-	"github.com/janderland/fdbq/parser/internal"
+	"github.com/janderland/fql/keyval"
+	"github.com/janderland/fql/parser/internal"
 )
 
 // Format provides methods which convert the types

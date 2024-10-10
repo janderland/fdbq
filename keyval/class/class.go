@@ -1,7 +1,7 @@
 // Package class classifies a key-value by the kind of operation it represents.
 package class
 
-import q "github.com/janderland/fdbq/keyval"
+import q "github.com/janderland/fql/keyval"
 
 // Class categorizes a KeyValue.
 type Class string

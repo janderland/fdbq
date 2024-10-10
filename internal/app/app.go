@@ -11,11 +11,11 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/spf13/cobra"
 
-	"github.com/janderland/fdbq/engine"
-	"github.com/janderland/fdbq/engine/facade"
-	"github.com/janderland/fdbq/internal/app/fullscreen"
-	"github.com/janderland/fdbq/internal/app/headless"
-	"github.com/janderland/fdbq/parser/format"
+	"github.com/janderland/fql/engine"
+	"github.com/janderland/fql/engine/facade"
+	"github.com/janderland/fql/internal/app/fullscreen"
+	"github.com/janderland/fql/internal/app/headless"
+	"github.com/janderland/fql/parser/format"
 )
 
 var (
@@ -32,12 +32,12 @@ var (
 )
 
 func init() {
-	flags = SetupFlags(FDBQ)
+	flags = SetupFlags(FQL)
 }
 
-var FDBQ = &cobra.Command{
-	Use:     "fdbq [flags] query ...",
-	Short:   "fdbq is a query language for Foundation DB",
+var FQL = &cobra.Command{
+	Use:     "fql [flags] query ...",
+	Short:   "fql is a query language for Foundation DB",
 	Version: Version,
 
 	RunE: func(cmd *cobra.Command, args []string) error {

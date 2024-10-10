@@ -10,9 +10,9 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/require"
 
-	"github.com/janderland/fdbq/engine/facade"
-	"github.com/janderland/fdbq/engine/internal"
-	q "github.com/janderland/fdbq/keyval"
+	"github.com/janderland/fql/engine/facade"
+	"github.com/janderland/fql/engine/internal"
+	q "github.com/janderland/fql/keyval"
 )
 
 var (

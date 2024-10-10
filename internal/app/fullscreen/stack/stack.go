@@ -1,6 +1,6 @@
 package stack
 
-import "github.com/janderland/fdbq/internal/app/fullscreen/results"
+import "github.com/janderland/fql/internal/app/fullscreen/results"
 
 type ResultsStack struct {
 	stack []results.Model

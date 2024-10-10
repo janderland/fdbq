@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/apple/foundationdb/bindings/go/src/fdb/tuple"
-	q "github.com/janderland/fdbq/keyval"
+	q "github.com/janderland/fql/keyval"
 	"github.com/stretchr/testify/require"
 )
 

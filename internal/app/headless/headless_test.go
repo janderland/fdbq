@@ -9,8 +9,8 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/require"
 
-	"github.com/janderland/fdbq/engine"
-	"github.com/janderland/fdbq/engine/facade"
+	"github.com/janderland/fql/engine"
+	"github.com/janderland/fql/engine/facade"
 )
 
 func TestHeadless_Query(t *testing.T) {

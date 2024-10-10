@@ -1,8 +1,8 @@
-# FDBQ
+# FQL
 
 ![demo gif](vhs/demo.gif)
 
-FDBQ provides a query language and an alternative client API for Foundation DB.
+FQL provides a query language and an alternative client API for Foundation DB.
 Some things this project aims to achieve are:
 
 - [x] Provide a query language for FDB.
@@ -20,7 +20,7 @@ Some things this project aims to achieve are:
 
 With the Foundation DB client library (>= v6.2.0) and Go (>= v1.20) installed,
 you can simply run `go build` in the root of this repo. This will create an
-`fdbq` binary in the root of the repo.
+`fql` binary in the root of the repo.
 
 ### Docker Environment
 
@@ -34,15 +34,15 @@ To build, lint, & test the current state of the codebase, run `./build.sh
 
 ### Docker Image
 
-FDBQ is available as a Docker image for executing queries. The first argument
+FQL is available as a Docker image for executing queries. The first argument
 passed to the container is the contents of the cluster file. The remaining
-arguments are passed to the FDBQ binary.
+arguments are passed to the FQL binary.
 
 ```bash
 # 'my_cluster:baoeA32@172.20.3.33:4500' is used as the contents
 # for the cluster file. '-log' and '/my/dir(<>)=42' are passed
-# as args to the FDBQ binary.
-docker run docker.io/janderland/fdbq 'my_cluster:baoeA32@172.20.3.33:4500' -log '/my/dir(<>)=42'
+# as args to the FQL binary.
+docker run docker.io/janderland/fql 'my_cluster:baoeA32@172.20.3.33:4500' -log '/my/dir(<>)=42'
 ```
 
 Within the cluster file contents (first argument), any instances of a 
@@ -58,29 +58,29 @@ docker run --network my_net --name fdb -d foundationdb/foundationdb
 # The substring '{fdb}' in the first argument will be replaced with
 # the IP address of the FDB container started above before the cluster
 # file is written to disk.
-docker run --network my_net docker.io/janderland/fdbq 'docker:docker@{fdb}:4500' -log '/my/dir(<>)=42'
+docker run --network my_net docker.io/janderland/fql 'docker:docker@{fdb}:4500' -log '/my/dir(<>)=42'
 ```
 
 ## Query Language
 
 Here is the [syntax definition](syntax.ebnf) for the query language. Currently,
-FDBQ is focused on reading & writing key-values created using the directory and
+FQL is focused on reading & writing key-values created using the directory and
 tuple layers. Reading or writing keys of arbitrary byte strings is not 
 supported.
 
-FDBQ queries are a textual representation of a specific key-value or a schema
+FQL queries are a textual representation of a specific key-value or a schema
 describing the structure of many key-values. These queries have the ability to
 write a key-value, read one or more key-values, and list directories.
 
 ### Components & Structure
 
-This section will explain the components and structure of an FDBQ query. The
+This section will explain the components and structure of an FQL query. The
 semantic meaning of these queries will be explained below in the [Kinds of 
 Queries](#kinds-of-queries) section.
 
 #### Primitives
 
-FDBQ utilizes textual representations of the element types supported by the
+FQL utilizes textual representations of the element types supported by the
 tuple layer. These types are known as primitives. Besides as tuple elements,
 primitives can also be used as the value portion of a key-value.
 
@@ -97,7 +97,7 @@ primitives can also be used as the value portion of a key-value.
 
 When primitives are used as tuple elements, they are encoded using the tuple 
 layer. When they are used as the value portion of a key-value, they are 
-encoded by FDBQ as outlined below.
+encoded by FQL as outlined below.
 
 | Type     | Encoding                          |
 |:---------|:----------------------------------|
@@ -113,7 +113,7 @@ encoded by FDBQ as outlined below.
 Ideally, the encoding of these primitives would align with common community 
 practices to maximize usefulness. Let me know if you believe it doesn't.
 
-Even though a big int encoding is supported by the tuple layer, FDBQ does 
+Even though a big int encoding is supported by the tuple layer, FQL does 
 not currently support using big ints.
 
 #### Directories
@@ -121,7 +121,7 @@ not currently support using big ints.
 A directory is specified as a sequence of strings, each prefixed by a forward
 slash:
 
-```fdbq
+```fql
 /my/dir/path_way
 ```
 
@@ -145,20 +145,20 @@ A tuple is specified as a sequence of elements, separated by commas, wrapped in
 a pair of curly braces. The elements may be a tuple or any of the primitive
 types.
 
-```fdbq
+```fql
 ("one", 2, 0x03, ( "subtuple" ), 5825d3f8-de5b-40c6-ac32-47ea8b98f7b4)
 ```
 
 The last element of a tuple may be the `...` token.
 
-```fdbq
+```fql
 (0xFF, "thing", ...)
 ```
 
 Any combination of spaces, tabs, and newlines is allowed after the opening  
 brace and commas.
 
-```fdbq
+```fql
 (
   1,
   2,
@@ -171,19 +171,19 @@ brace and commas.
 A key-value is specified as a directory, tuple, equal symbol, and value appended
 together:
 
-```fdbq
+```fql
 /my/dir("this", 0)=0xabcf03
 ```
 
 The value following the equal symbol may be any of the primitives or a tuple:
 
-```fdbq
+```fql
 /my/dir(22.3, -8)=("another", "tuple")
 ```
 
 The value can also be the `clear` token.
 
-```fdbq
+```fql
 /some/where("home", "town", 88.3)=clear
 ```
 
@@ -191,7 +191,7 @@ The value can also be the `clear` token.
 
 A variable may be used in place of a directory element, tuple element, or value.
 
-```fdbq
+```fql
 /my/dir/<>("first", <>, "third")=<>
 ```
 
@@ -200,13 +200,13 @@ types separated by pipes, except for the `nil` type. The variable may also
 contain the `any` type which is equivalent to specifying every type. Specifying
 no types is also equivalent to specifying the `any` type.
 
-```fdbq
+```fql
 /my/dir("that", <int|float|bytes>)=<any>
 ```
 
 ### Kinds of Queries
 
-This section showcases the various kinds of FDBQ queries, their semantic
+This section showcases the various kinds of FQL queries, their semantic
 meaning, and the equivalent FDB API calls implemented in Go.
 
 #### Set
@@ -214,7 +214,7 @@ meaning, and the equivalent FDB API calls implemented in Go.
 Set queries write a single key-value. The query must not contain the `clear`
 or `...` tokens, nor a variable.
 
-```fdbq
+```fql
 /my/dir("hello", "world")=42
 ```
 
@@ -237,7 +237,7 @@ db.Transact(func(tr fdb.Transaction) (interface{}, error) {
 Clear queries delete a single key-value. The query must contain the `clear`
 token as it's value and must not contain the `...` token or variables.
 
-```fdbq
+```fql
 /my/dir("hello", "world")=clear
 ```
 
@@ -265,7 +265,7 @@ by the variable. The first successful deserialization is used as the output. If
 the value cannot be deserialized as any of the types specified then the
 key-value is not returned or an error is returned, depending on configuration.
 
-```fdbq
+```fql
 /my/dir(99.8, 7dfb10d1-2493-4fb5-928e-889fdc6a7136)=<int|string>
 ```
 
@@ -294,7 +294,7 @@ As a shorthand, these query may be specified without the `=` token or value.
 This implies an empty variable as the value. In the code block below, the 
 three queries are equivalent.
 
-```fdbq
+```fql
 /my/dir(99.8, 7dfb10d1-2493-4fb5-928e-889fdc6a7136)
 /my/dir(99.8, 7dfb10d1-2493-4fb5-928e-889fdc6a7136)=<>
 /my/dir(99.8, 7dfb10d1-2493-4fb5-928e-889fdc6a7136)=<any>
@@ -311,7 +311,7 @@ additional filtering performed on the client. Care must be taken with these
 queries as they may result in large amounts of data being sent to the 
 client and most of the data being filtered out.
 
-```fdbq
+```fql
 /people(3392, <string|int>, <>)=(<uint>, ...)
 ```
 
@@ -372,7 +372,7 @@ db.ReadTransact(func(tr fdb.ReadTransaction) (interface{}, error) {
 If only a directory is provided as a query, then the directory layer is queried.
 Empty variables may be included as placeholders for any directory name.
 
-```fdbq
+```fql
 /root/<>/items/<>
 ```
 

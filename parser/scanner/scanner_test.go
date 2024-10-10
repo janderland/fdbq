@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/janderland/fdbq/parser/internal"
+	"github.com/janderland/fql/parser/internal"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 )

@@ -10,11 +10,11 @@ import (
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog"
 
-	"github.com/janderland/fdbq/engine/facade"
-	"github.com/janderland/fdbq/engine/internal"
-	"github.com/janderland/fdbq/keyval"
-	"github.com/janderland/fdbq/keyval/compare"
-	"github.com/janderland/fdbq/keyval/convert"
+	"github.com/janderland/fql/engine/facade"
+	"github.com/janderland/fql/engine/internal"
+	"github.com/janderland/fql/keyval"
+	"github.com/janderland/fql/keyval/compare"
+	"github.com/janderland/fql/keyval/convert"
 )
 
 type (
@@ -159,7 +159,7 @@ func (x *Stream) ReadRange(tr facade.ReadTransaction, query keyval.Tuple, opts R
 // UnpackKeys converts the channel of DirKVErr into a channel of KeyValErr in a separate goroutine.
 // When the goroutine exits, the returned channel is closed. Any errors read from the input channel
 // are wrapped and forwarded. Keys are unpacked using subspace.Subspace.Unpack and then converted to
-// FDBQ types. Values are converted to [keyval.Bytes]; the actual byte string remains unchanged.
+// FQL types. Values are converted to [keyval.Bytes]; the actual byte string remains unchanged.
 func (x *Stream) UnpackKeys(query keyval.Tuple, filter bool, in chan DirKVErr) chan KeyValErr {
 	out := make(chan KeyValErr)
 

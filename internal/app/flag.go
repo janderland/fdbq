@@ -5,8 +5,8 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/janderland/fdbq/engine"
-	"github.com/janderland/fdbq/parser/format"
+	"github.com/janderland/fql/engine"
+	"github.com/janderland/fql/parser/format"
 )
 
 type Flags struct {

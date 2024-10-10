@@ -1,4 +1,4 @@
-module github.com/janderland/fdbq
+module github.com/janderland/fql
 
 go 1.19
 

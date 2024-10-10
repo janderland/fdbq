@@ -13,7 +13,7 @@ include-before: |
   /user(24335,"Andrew","Johnson",42)=nil
   /user(33423,"Ryan","Johnson",0x0ffa83,42.2)=nil
   ```
-  FQL is an [open source](https://github.com/janderland/fdbq)
+  FQL is an [open source](https://github.com/janderland/fql)
   query language for
   [Foundation DB](https://www.foundationdb.org/). It's query
   semantics mirror Foundation DB's [core data
@@ -25,7 +25,7 @@ include-before: |
 # Overview
 
 FQL is specified as a [context-free
-grammar](https://github.com/janderland/fdbq/blob/main/syntax.ebnf).
+grammar](https://github.com/janderland/fql/blob/main/syntax.ebnf).
 The queries look like key-values encoded using the directory
 & tuple layers.
 
@@ -642,9 +642,9 @@ import (
   "github.com/apple/foundationdb/bindings/go/src/fdb"
   "github.com/apple/foundationdb/bindings/go/src/fdb/directory"
 
-  "github.com/janderland/fdbq/engine"
-  "github.com/janderland/fdbq/engine/facade"
-  kv "github.com/janderland/fdbq/keyval"
+  "github.com/janderland/fql/engine"
+  "github.com/janderland/fql/engine/facade"
+  kv "github.com/janderland/fql/keyval"
 )
 
 func _() {

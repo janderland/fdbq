@@ -6,10 +6,10 @@ function print_help {
   cat << END
 build.sh is a facade for docker compose. It runs a set of
 optional tasks in the order specified below. This is the same
-script used by CI/CD to build, test, and package FDBQ.
+script used by CI/CD to build, test, and package FQL.
 
 If the '--image build' flag is set then the script starts off by
-running 'docker build' for the 'fdbq-build' docker image. The tag
+running 'docker build' for the 'fql-build' docker image. The tag
 is determined by the git tag/hash. This image is used to run the
 'generate' and 'verify' tasks below.
 
@@ -27,13 +27,13 @@ Arm Macs where Dockerfile linting is currently unsupported.
 If the --docs' flag is set then the documentation HTML will be
 generated under the /docs directory.
 
-If the '--image fdbq' flag is set then the script runs 'docker
-build' for the 'fdbq' docker image. The tag is determined by the
+If the '--image fql' flag is set then the script runs 'docker
+build' for the 'fql' docker image. The tag is determined by the
 git tag/hash and the version of the FDB library specified in the
 '.env' file.
 
 If the '--run' flag is provided then all the args after this flag
-are passed to an instance of the 'fdbq' docker image. Normally
+are passed to an instance of the 'fql' docker image. Normally
 this image expects a cluster file as the first argument but this
 script takes care of starting an FDB cluster and providing the
 cluster file as the first argument. Note that this is the same
@@ -47,7 +47,7 @@ then the script exits immediately.
 Multiple image names can be specified on the '--image' flag by
 separating them with commas.
 
-  ./build.sh --image build,fdbq
+  ./build.sh --image build,fql
 
 When building Docker images, the dependencies of the Dockerfile
 are specified in the '.env' file. When this file is changed,
@@ -155,8 +155,8 @@ while [[ $# -gt 0 ]]; do
           build)
             IMAGE_BUILD="x"
             ;;
-          fdbq)
-            IMAGE_FDBQ="x"
+          fql)
+            IMAGE_FQL="x"
             ;;
           *)
             fail "Invalid build target '$service'"
@@ -168,8 +168,8 @@ while [[ $# -gt 0 ]]; do
 
     --run)
       shift 1
-      RUN_FDBQ="x"
-      FDBQ_ARGS=("$@")
+      RUN_FQL="x"
+      FQL_ARGS=("$@")
       shift $#
       ;;
 
@@ -205,9 +205,9 @@ BUILD_COMMAND="$(join_array ' && ' "${BUILD_TASKS[@]}")"
 echo "BUILD_COMMAND=${BUILD_COMMAND}"
 export BUILD_COMMAND
 
-FDBQ_COMMAND=${FDBQ_ARGS[*]}
-echo "FDBQ_COMMAND=${FDBQ_COMMAND}"
-export FDBQ_COMMAND
+FQL_COMMAND=${FQL_ARGS[*]}
+echo "FQL_COMMAND=${FQL_COMMAND}"
+export FQL_COMMAND
 
 DOCKER_TAG="$(code_version)_fdb.$(fdb_version)"
 echo "DOCKER_TAG=${DOCKER_TAG}"
@@ -224,10 +224,10 @@ if [[ -n "$BUILD_COMMAND" ]]; then
   (set -x; docker compose run build /bin/sh -c "$BUILD_COMMAND")
 fi
 
-if [[ -n "$IMAGE_FDBQ" ]]; then
-  (set -x; docker compose build fdbq)
+if [[ -n "$IMAGE_FQL" ]]; then
+  (set -x; docker compose build fql)
 fi
 
-if [[ -n "$RUN_FDBQ" ]]; then
-  (set -x; docker compose run fdbq 'docker:docker@{fdb}:4500' "${FDBQ_ARGS[@]}")
+if [[ -n "$RUN_FQL" ]]; then
+  (set -x; docker compose run fql 'docker:docker@{fdb}:4500' "${FQL_ARGS[@]}")
 fi

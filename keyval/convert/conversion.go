@@ -4,7 +4,7 @@ import (
 	"github.com/apple/foundationdb/bindings/go/src/fdb/tuple"
 	"github.com/pkg/errors"
 
-	q "github.com/janderland/fdbq/keyval"
+	q "github.com/janderland/fql/keyval"
 )
 
 var _ q.TupleOperation = &conversion{}

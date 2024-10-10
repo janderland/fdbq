@@ -1,7 +1,7 @@
 package stack
 
 import (
-	"github.com/janderland/fdbq/internal/app/fullscreen/results"
+	"github.com/janderland/fql/internal/app/fullscreen/results"
 	"github.com/stretchr/testify/require"
 	"testing"
 )

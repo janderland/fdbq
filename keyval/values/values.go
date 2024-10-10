@@ -8,8 +8,8 @@ import (
 	"github.com/apple/foundationdb/bindings/go/src/fdb/tuple"
 	"github.com/pkg/errors"
 
-	"github.com/janderland/fdbq/keyval"
-	"github.com/janderland/fdbq/keyval/convert"
+	"github.com/janderland/fql/keyval"
+	"github.com/janderland/fql/keyval/convert"
 )
 
 // UnexpectedValueTypeErr is returned by Unpack if the provided keyval.ValueType is

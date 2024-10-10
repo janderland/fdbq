@@ -6,12 +6,12 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/janderland/fdbq/keyval"
-	"github.com/janderland/fdbq/keyval/values"
+	"github.com/janderland/fql/keyval"
+	"github.com/janderland/fql/keyval/values"
 )
 
 type (
-	// ValHandler processes the FDB value byte-strings during a FDBQ
+	// ValHandler processes the FDB value byte-strings during a FQL
 	// read operation. Depending on the operation, the byte-strings
 	// aren't always deserialized.
 	ValHandler interface {

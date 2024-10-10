@@ -3,8 +3,8 @@ package format
 import (
 	"strings"
 
-	q "github.com/janderland/fdbq/keyval"
-	"github.com/janderland/fdbq/parser/internal"
+	q "github.com/janderland/fql/keyval"
+	"github.com/janderland/fql/parser/internal"
 )
 
 // formatDirElement is a keyval.DirectoryOperation

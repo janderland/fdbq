@@ -4,7 +4,7 @@ import (
 	"encoding/binary"
 	"testing"
 
-	q "github.com/janderland/fdbq/keyval"
+	q "github.com/janderland/fql/keyval"
 	"github.com/stretchr/testify/require"
 )
 

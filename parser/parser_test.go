@@ -6,9 +6,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	q "github.com/janderland/fdbq/keyval"
-	"github.com/janderland/fdbq/parser/format"
-	"github.com/janderland/fdbq/parser/scanner"
+	q "github.com/janderland/fql/keyval"
+	"github.com/janderland/fql/parser/format"
+	"github.com/janderland/fql/parser/scanner"
 )
 
 func TestDirectory(t *testing.T) {

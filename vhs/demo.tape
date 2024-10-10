@@ -14,7 +14,7 @@ Enter
 Sleep 1s
 Show
 
-Type "./fdbq" 
+Type "./fql"
 Enter
 
 Sleep 2s

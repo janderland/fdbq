@@ -1,6 +1,6 @@
 package class
 
-import q "github.com/janderland/fdbq/keyval"
+import q "github.com/janderland/fql/keyval"
 
 var (
 	_ q.DirectoryOperation = &dirClassification{}

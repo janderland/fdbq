@@ -4,8 +4,8 @@ import (
 	"encoding/binary"
 	"math"
 
-	q "github.com/janderland/fdbq/keyval"
-	"github.com/janderland/fdbq/keyval/convert"
+	q "github.com/janderland/fql/keyval"
+	"github.com/janderland/fql/keyval/convert"
 	"github.com/pkg/errors"
 )
 

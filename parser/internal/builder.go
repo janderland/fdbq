@@ -3,7 +3,7 @@ package internal
 import (
 	"github.com/pkg/errors"
 
-	"github.com/janderland/fdbq/keyval"
+	"github.com/janderland/fql/keyval"
 )
 
 // KeyValBuilder is used by parser.Parser to construct the

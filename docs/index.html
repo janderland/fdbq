@@ -21,7 +21,7 @@
     <pre class="lang-fql result"><code>/user(9323,&quot;Timothy&quot;,&quot;Johnson&quot;,37)=nil
 /user(24335,&quot;Andrew&quot;,&quot;Johnson&quot;,42)=nil
 /user(33423,&quot;Ryan&quot;,&quot;Johnson&quot;,0x0ffa83,42.2)=nil</code></pre>
-    <p>FQL is an <a href="https://github.com/janderland/fdbq">open
+    <p>FQL is an <a href="https://github.com/janderland/fql">open
     source</a> query language for <a
     href="https://www.foundationdb.org/">Foundation DB</a>. It’s query
     semantics mirror Foundation DB’s <a
@@ -57,7 +57,7 @@
     </ul>
   <h1 id="overview">Overview</h1>
   <p>FQL is specified as a <a
-  href="https://github.com/janderland/fdbq/blob/main/syntax.ebnf">context-free
+  href="https://github.com/janderland/fql/blob/main/syntax.ebnf">context-free
   grammar</a>. The queries look like key-values encoded using the
   directory &amp; tuple layers.</p>
   <pre class="lang-fql query"><code>/my/directory(&quot;my&quot;,&quot;tuple&quot;)=4000</code></pre>
@@ -536,9 +536,9 @@ import (
   &quot;github.com/apple/foundationdb/bindings/go/src/fdb&quot;
   &quot;github.com/apple/foundationdb/bindings/go/src/fdb/directory&quot;
 
-  &quot;github.com/janderland/fdbq/engine&quot;
-  &quot;github.com/janderland/fdbq/engine/facade&quot;
-  kv &quot;github.com/janderland/fdbq/keyval&quot;
+  &quot;github.com/janderland/fql/engine&quot;
+  &quot;github.com/janderland/fql/engine/facade&quot;
+  kv &quot;github.com/janderland/fql/keyval&quot;
 )
 
 func _() {

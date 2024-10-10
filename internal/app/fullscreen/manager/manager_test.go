@@ -6,8 +6,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/janderland/fdbq/engine"
-	"github.com/janderland/fdbq/engine/facade"
+	"github.com/janderland/fql/engine"
+	"github.com/janderland/fql/engine/facade"
 )
 
 func TestWriteFlag(t *testing.T) {

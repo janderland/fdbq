@@ -7,9 +7,9 @@ import (
 	"github.com/apple/foundationdb/bindings/go/src/fdb/directory"
 	"github.com/brianvoe/gofakeit/v6"
 
-	"github.com/janderland/fdbq/engine"
-	"github.com/janderland/fdbq/engine/facade"
-	kv "github.com/janderland/fdbq/keyval"
+	"github.com/janderland/fql/engine"
+	"github.com/janderland/fql/engine/facade"
+	kv "github.com/janderland/fql/keyval"
 )
 
 func main() {

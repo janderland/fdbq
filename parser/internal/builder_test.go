@@ -3,7 +3,7 @@ package internal
 import (
 	"testing"
 
-	q "github.com/janderland/fdbq/keyval"
+	q "github.com/janderland/fql/keyval"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

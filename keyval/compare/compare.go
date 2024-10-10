@@ -2,7 +2,7 @@
 package compare
 
 import (
-	q "github.com/janderland/fdbq/keyval"
+	q "github.com/janderland/fql/keyval"
 )
 
 // Tuples checks if the candidate Tuple conforms to the given schema.

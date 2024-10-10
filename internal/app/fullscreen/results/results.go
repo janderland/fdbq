@@ -6,15 +6,15 @@ import (
 	"github.com/apple/foundationdb/bindings/go/src/fdb/directory"
 	"github.com/charmbracelet/bubbles/key"
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/janderland/fdbq/internal/app/fullscreen/results/wrap"
+	"github.com/janderland/fql/internal/app/fullscreen/results/wrap"
 	"github.com/rs/zerolog"
 	"math"
 	"strings"
 
-	"github.com/janderland/fdbq/engine/stream"
-	"github.com/janderland/fdbq/keyval"
-	"github.com/janderland/fdbq/keyval/convert"
-	"github.com/janderland/fdbq/parser/format"
+	"github.com/janderland/fql/engine/stream"
+	"github.com/janderland/fql/keyval"
+	"github.com/janderland/fql/keyval/convert"
+	"github.com/janderland/fql/parser/format"
 )
 
 type keyMap struct {

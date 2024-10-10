@@ -4,9 +4,9 @@ import (
 	"github.com/apple/foundationdb/bindings/go/src/fdb"
 	"github.com/apple/foundationdb/bindings/go/src/fdb/directory"
 
-	"github.com/janderland/fdbq/engine"
-	"github.com/janderland/fdbq/engine/facade"
-	"github.com/janderland/fdbq/keyval"
+	"github.com/janderland/fql/engine"
+	"github.com/janderland/fql/engine/facade"
+	"github.com/janderland/fql/keyval"
 )
 
 func Example() {

@@ -5,7 +5,7 @@ RUN apt-get update &&\
     apt-get install --no-install-recommends -y \
       build-essential=12.9 \
       ca-certificates=20230311 \
-      git=1:2.39.2-1.1 \
+      git=1:2.39.5-0+deb12u1 \
       curl=7.88.1-10+deb12u7 &&\
     apt-get clean &&\
     rm -rf /var/lib/apt/lists/*
@@ -52,10 +52,10 @@ RUN curl -Lo /pandoc.deb $PANDOC_URL &&\
     rm /pandoc.deb
 
 # Configure git so it allows any user to run git commands
-# on the /fdbq directory. This allows the user which runs
+# on the /fql directory. This allows the user which runs
 # CI to be different from the user which built the Docker
 # image.
-RUN git config --global --add safe.directory /fdbq
+RUN git config --global --add safe.directory /fql
 
 
 # 'gobuild' executes 'go build'.
@@ -64,11 +64,11 @@ FROM builder AS gobuild
 COPY . /src
 WORKDIR /src
 
-ARG FDBQ_VER
-RUN go build -o /fdbq -ldflags="-X 'github.com/janderland/fdbq/internal/app.Version=${FDBQ_VER}'"
+ARG FQL_VER
+RUN go build -o /fql -ldflags="-X 'github.com/janderland/fql/internal/app.Version=${FQL_VER}'"
 
 
-# The final stage builds the 'fdbq' image.
+# The final stage builds the 'fql' image.
 FROM debian:12
 
 COPY --from=gobuild /fdb.deb /fdb.deb
@@ -77,6 +77,6 @@ RUN dpkg -i ./fdb.deb &&\
 
 ENV TERM="xterm-256color"
 
-COPY --from=gobuild /fdbq /fdbq
+COPY --from=gobuild /fql /fql
 COPY ./docker/shim.sh /shim.sh
 ENTRYPOINT ["/shim.sh"]

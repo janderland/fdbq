@@ -7,7 +7,7 @@ services:
   # linting, and testing the code.
   build:
     container_name: "build"
-    image: "docker.io/janderland/fdbq-build:${DOCKER_TAG}"
+    image: "docker.io/janderland/fql-build:${DOCKER_TAG}"
     platform: "linux/amd64"
     build:
       context: "./docker"
@@ -15,7 +15,7 @@ services:
       platforms:
         - "linux/amd64"
       args: &build_args
-        FDBQ_VER: "${DOCKER_TAG}"
+        FQL_VER: "${DOCKER_TAG}"
         FDB_LIB_URL: "${FDB_LIB_URL}"
         GO_URL: "${GO_URL}"
         GOLANGCI_LINT_VER: "${GOLANGCI_LINT_VER}"
@@ -25,16 +25,16 @@ services:
         PANDOC_URL: "${PANDOC_URL}"
     depends_on:
       - "fdb"
-    working_dir: "/fdbq"
+    working_dir: "/fql"
     volumes:
-      - ".:/fdbq"
+      - ".:/fql"
       - "cache:/cache"
 
-  # The fdbq service allows us to build and test the
-  # fdbq Docker image.
-  fdbq:
-    container_name: "fdbq"
-    image: "docker.io/janderland/fdbq:${DOCKER_TAG}"
+  # The fql service allows us to build and test the
+  # fql Docker image.
+  fql:
+    container_name: "fql"
+    image: "docker.io/janderland/fql:${DOCKER_TAG}"
     platform: "linux/amd64"
     build:
       context: "."

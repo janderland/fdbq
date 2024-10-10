@@ -30,7 +30,7 @@ import (
 	"text/template"
 	"unicode"
 
-	g "github.com/janderland/fdbq/internal/generate"
+	g "github.com/janderland/fql/internal/generate"
 )
 
 func main() {

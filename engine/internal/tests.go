@@ -8,7 +8,7 @@ import (
 
 	"github.com/apple/foundationdb/bindings/go/src/fdb"
 	"github.com/apple/foundationdb/bindings/go/src/fdb/directory"
-	"github.com/janderland/fdbq/engine/facade"
+	"github.com/janderland/fql/engine/facade"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog"
 )

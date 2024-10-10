@@ -8,12 +8,12 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/pkg/errors"
 
-	"github.com/janderland/fdbq/engine"
-	"github.com/janderland/fdbq/internal/app/fullscreen/buffer"
-	"github.com/janderland/fdbq/keyval"
-	"github.com/janderland/fdbq/keyval/class"
-	"github.com/janderland/fdbq/parser"
-	"github.com/janderland/fdbq/parser/scanner"
+	"github.com/janderland/fql/engine"
+	"github.com/janderland/fql/internal/app/fullscreen/buffer"
+	"github.com/janderland/fql/keyval"
+	"github.com/janderland/fql/keyval/class"
+	"github.com/janderland/fql/parser"
+	"github.com/janderland/fql/parser/scanner"
 )
 
 type AsyncQueryMsg struct {

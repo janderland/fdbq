@@ -1,4 +1,4 @@
-// Package convert converts between FDBQ and FDB types.
+// Package convert converts between FQL and FDB types.
 package convert
 
 import (
@@ -6,7 +6,7 @@ import (
 	"github.com/apple/foundationdb/bindings/go/src/fdb/tuple"
 	"github.com/pkg/errors"
 
-	q "github.com/janderland/fdbq/keyval"
+	q "github.com/janderland/fql/keyval"
 )
 
 // ToStringArray attempts to convert a keyval.Directory to a string

@@ -9,13 +9,13 @@ import (
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog"
 
-	"github.com/janderland/fdbq/engine/facade"
-	"github.com/janderland/fdbq/engine/internal"
-	"github.com/janderland/fdbq/engine/stream"
-	"github.com/janderland/fdbq/keyval"
-	"github.com/janderland/fdbq/keyval/class"
-	"github.com/janderland/fdbq/keyval/convert"
-	"github.com/janderland/fdbq/keyval/values"
+	"github.com/janderland/fql/engine/facade"
+	"github.com/janderland/fql/engine/internal"
+	"github.com/janderland/fql/engine/stream"
+	"github.com/janderland/fql/keyval"
+	"github.com/janderland/fql/keyval/class"
+	"github.com/janderland/fql/keyval/convert"
+	"github.com/janderland/fql/keyval/values"
 )
 
 // SingleOpts configures how an [Engine.ReadSingle] call is executed.

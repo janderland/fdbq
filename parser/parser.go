@@ -9,9 +9,9 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/janderland/fdbq/keyval"
-	"github.com/janderland/fdbq/parser/internal"
-	"github.com/janderland/fdbq/parser/scanner"
+	"github.com/janderland/fql/keyval"
+	"github.com/janderland/fql/parser/internal"
+	"github.com/janderland/fql/parser/scanner"
 )
 
 type state int

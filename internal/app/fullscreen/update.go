@@ -8,8 +8,8 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/pkg/errors"
 
-	"github.com/janderland/fdbq/internal/app/fullscreen/manager"
-	"github.com/janderland/fdbq/keyval"
+	"github.com/janderland/fql/internal/app/fullscreen/manager"
+	"github.com/janderland/fql/keyval"
 )
 
 func (x Model) Init() tea.Cmd {

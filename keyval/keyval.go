@@ -8,7 +8,7 @@
 //
 // When working with SQL, programmers will often embed SQL strings in
 // the application. This requires extra tooling to catch syntax errors
-// at build time. Instead of using string literals, FDBQ allows the
+// at build time. Instead of using string literals, FQL allows the
 // programmer to directly construct the queries using the types in this
 // package, allowing some syntax errors to be caught at build time.
 //
@@ -34,7 +34,7 @@
 // UUID, and Bytes. All of these types can be used as a TupElement or as
 // a Value. When used as a TupElement, they are serialized by FDB tuple
 // packing. When used as a Value, they are known as a "primitive" values
-// and are serialized by FDBQ.
+// and are serialized by FQL.
 package keyval
 
 // TODO: Add BigInt to Tuple and Value.

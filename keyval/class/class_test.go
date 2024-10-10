@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	q "github.com/janderland/fdbq/keyval"
+	q "github.com/janderland/fql/keyval"
 )
 
 func TestClassify(t *testing.T) {

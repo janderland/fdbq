@@ -4,14 +4,14 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/janderland/fdbq/internal/app/fullscreen/results"
+	"github.com/janderland/fql/internal/app/fullscreen/results"
 )
 
 var helpMsg string
 
 func init() {
 	const str = `
-FDBQ provides an environment for querying and mutating
+FQL provides an environment for querying and mutating
 data of a Foundation DB cluster. The environment has
 3 modes: input, scroll, & help. The environment starts
 in input mode. 

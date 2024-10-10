@@ -1,15 +1,15 @@
 /*
-fdbq is a query language for Foundation DB
+fql is a query language for Foundation DB
 
 Usage:
 
-	fdbq [flags] query ...
+	fql [flags] query ...
 
 Flags:
 
 	-b, --bytes               print full byte strings instead of just their length
 	-c, --cluster string      path to cluster file
-	-h, --help                help for fdbq
+	-h, --help                help for fql
 	    --limit int           limit the number of KVs read in range-reads
 	-l, --little              encode/decode values as little endian instead of big endian
 	    --log                 enable debug logging
@@ -21,10 +21,10 @@ Flags:
 */
 package main
 
-import "github.com/janderland/fdbq/internal/app"
+import "github.com/janderland/fql/internal/app"
 
 func main() {
-	if err := app.FDBQ.Execute(); err != nil {
+	if err := app.FQL.Execute(); err != nil {
 		panic(err)
 	}
 }

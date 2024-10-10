@@ -30,7 +30,7 @@ echo
 # Shift the rest of the arguments up, if there are any.
 shift || true
 
-# Create the cluster file and run FDBQ with the
+# Create the cluster file and run FQL with the
 # remaining arguments.
 echo "$CLUSTER_FILE" > /etc/foundationdb/fdb.cluster
-/fdbq "$@"
+/fql "$@"

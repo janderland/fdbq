@@ -2,8 +2,8 @@ package fullscreen
 
 import (
 	"context"
-	"github.com/janderland/fdbq/internal/app/fullscreen/results"
-	"github.com/janderland/fdbq/internal/app/fullscreen/stack"
+	"github.com/janderland/fql/internal/app/fullscreen/results"
+	"github.com/janderland/fql/internal/app/fullscreen/stack"
 	"io"
 	"time"
 
@@ -12,9 +12,9 @@ import (
 	lip "github.com/charmbracelet/lipgloss"
 	"github.com/rs/zerolog"
 
-	"github.com/janderland/fdbq/engine"
-	"github.com/janderland/fdbq/internal/app/fullscreen/manager"
-	"github.com/janderland/fdbq/parser/format"
+	"github.com/janderland/fql/engine"
+	"github.com/janderland/fql/internal/app/fullscreen/manager"
+	"github.com/janderland/fql/parser/format"
 )
 
 type App struct {

@@ -13,11 +13,11 @@ import (
 	"github.com/rs/zerolog"
 	"github.com/stretchr/testify/require"
 
-	"github.com/janderland/fdbq/engine/facade"
-	"github.com/janderland/fdbq/engine/internal"
-	q "github.com/janderland/fdbq/keyval"
-	"github.com/janderland/fdbq/keyval/convert"
-	"github.com/janderland/fdbq/keyval/values"
+	"github.com/janderland/fql/engine/facade"
+	"github.com/janderland/fql/engine/internal"
+	q "github.com/janderland/fql/keyval"
+	"github.com/janderland/fql/keyval/convert"
+	"github.com/janderland/fql/keyval/values"
 )
 
 var (

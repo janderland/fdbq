@@ -9,9 +9,9 @@ import (
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/require"
 
-	"github.com/janderland/fdbq/engine/facade"
-	"github.com/janderland/fdbq/engine/stream"
-	"github.com/janderland/fdbq/keyval"
+	"github.com/janderland/fql/engine/facade"
+	"github.com/janderland/fql/engine/stream"
+	"github.com/janderland/fql/keyval"
 )
 
 func TestHeight(t *testing.T) {
